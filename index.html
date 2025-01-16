@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ester, Eu te amo hoje e sempre! ❤️</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #ffcccb, #ffe6e6);
+            text-align: center;
+            color: #333;
+        }
+        .marquee {
+            background-color: #ff4d6d;
+            color: white;
+            font-size: 1.2rem;
+            padding: 10px 0;
+            overflow: hidden;
+        }
+        .marquee span {
+            display: inline-block;
+            animation: scroll 10s linear infinite;
+        }
+        @keyframes scroll {
+            from {
+                transform: translateX(100%);
+            }
+            to {
+                transform: translateX(-100%);
+            }
+        }
+        h1 {
+            font-size: 2.5rem;
+            color: #ff4d6d;
+        }
+        h2 {
+            margin-top: 20px;
+            font-size: 1.5rem;
+            color: #333;
+        }
+        iframe {
+            margin: 20px auto;
+            border: none;
+            border-radius: 10px;
+            width: 80%;
+            height: 315px;
+        }
+        .slideshow {
+            position: relative;
+            max-width: 600px;
+            margin: 30px auto;
+        }
+        .slides {
+            display: none;
+            border-radius: 10px;
+        }
+        .counter {
+            margin: 30px auto;
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Barra de rolagem -->
+    <div class="marquee">
+        <span>Ester, Eu te amo hoje e sempre! ❤️</span>
+    </div>
+
+    <!-- Mensagem -->
+    <h1>Eu te amo, minha linda!</h1>
+    <p>Você colore a minha vida, mesmo sendo preta.</p>
+
+    <!-- Player do YouTube -->
+    <iframe src="https://www.youtube.com/embed/bFsLbEAsJjg" 
+            title="Me Gustas Tu - Manu Chao"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+    </iframe>
+
+    <!-- Contador regressivo -->
+    <h2>Quanto falta pro dia mais feliz das nossas vidas…</h2>
+    <div class="counter" id="counter"></div>
+
+    <!-- Slideshow de fotos -->
+    <div class="slideshow">
+        <img class="slides" src="foto1.jpg" alt="Foto 1" style="width:100%">
+        <img class="slides" src="foto2.jpg" alt="Foto 2" style="width:100%">
+        <img class="slides" src="foto3.jpg" alt="Foto 3" style="width:100%">
+    </div>
+
+    <script>
+        // Contador regressivo
+        const targetDate = new Date('2025-12-25T00:00:00'); // Alterar para a data desejada
+        const counterElement = document.getElementById('counter');
+
+        function updateCounter() {
+            const now = new Date();
+            const diff = targetDate - now;
+
+            if (diff <= 0) {
+                counterElement.innerHTML = "Chegou o grande dia! 🎉";
+                clearInterval(interval);
+                return;
+            }
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            counterElement.innerHTML = `${days} dias, ${hours} horas, ${minutes} minutos e ${seconds} segundos.`;
+        }
+
+        const interval = setInterval(updateCounter, 1000);
+        updateCounter();
+
+        // Slideshow de fotos
+        let slideIndex = 0;
+
+        function showSlides() {
+            const slides = document.getElementsByClassName('slides');
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = 'none';
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {
+                slideIndex = 1;
+            }
+            slides[slideIndex - 1].style.display = 'block';
+            setTimeout(showSlides, 3000); // Troca a cada 3 segundos
+        }
+
+        showSlides();
+    </script>
+</body>
+</html>
