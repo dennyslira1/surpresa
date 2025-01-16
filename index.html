@@ -73,36 +73,29 @@
     <h1>Eu te amo, minha linda!</h1>
     <p>Você colore a minha vida, mesmo sendo preta.</p>
 
-    <!-- Player do YouTube -->
-<div class="youtube-container">
-    <iframe 
-        src="https://youtu.be/R7ukgO7RXnY?si=lzt9HQgeFj-EkBjC" 
-        title="Deixa - Lagum" 
-        frameborder="0" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-        allowfullscreen>
-    </iframe>
+    <!-- Player de Música -->
+<div class="audio-player">
+    <h2>Me Gustas Tu - Manu Chao</h2>
+    <audio controls>
+        <source src="https://raw.githubusercontent.com/dennyslira1/surpresa/refs/heads/main/Manu%20Chao%20-%20Me%20Gustas%20Tu.mp3" type="audio/mpeg">
+        Seu navegador não suporta o elemento de áudio.
+    </audio>
 </div>
 
 <style>
-    .youtube-container {
-        position: relative;
-        width: 100%;
-        max-width: 800px;
+    .audio-player {
         margin: 20px auto;
-        padding-bottom: 56.25%; /* Mantém a proporção 16:9 */
-        height: 0;
-        overflow: hidden;
+        text-align: center;
+        font-size: 1.2rem;
+        color: #ff4d6d;
     }
 
-    .youtube-container iframe {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        border: none;
-        border-radius: 10px; /* Bordas arredondadas para melhor estética */
+    audio {
+        width: 80%;
+        max-width: 600px;
+        margin-top: 10px;
+        border-radius: 10px;
+        outline: none;
     }
 </style>
     <!-- Contador regressivo -->
